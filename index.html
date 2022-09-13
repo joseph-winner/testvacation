@@ -260,6 +260,7 @@
                     <input type="button" id="uidBtn" value="Enter">
                 </form>
             </div>
+            <div id="disqus_thread"></div>
 <style>
     .widow-load{
         display: flex;
@@ -288,16 +289,7 @@
                 const minutes = document.querySelector(".conf-mins");
                 const seconds = document.querySelector(".conf-secs");
 
-                days.addEventListener("change", () => {
-                    Notification.requestPermission().then( perm =>{
-                        if(perm === "granted"){
-                            const notification = new Notification("Time lapse Notification",{
-                                body: "Dear User you have dayValue < 10 ? `0${dayValue}` : dayValue days remaining",
-                                icon: "./images/ugandaflag.png"
-                            })
-                        }
-                    })
-                })
+                
                 const countDown = () => {
                     const countDate = new Date("September 27, 2022 00:00:00").getTime();
                     const currentDate = new Date().getTime();
@@ -326,8 +318,30 @@
                 //     container.style.display = "flex";
                 // }
 
+                days.addEventListener("change", () => {
+                    Notification.requestPermission().then( perm =>{
+                        if(perm === "granted"){
+                            const notification = new Notification("Time lapse Notification",{
+                                body: "Dear User you have dayValue < 10 ? `0${dayValue}` : dayValue days remaining",
+                                icon: "./images/ugandaflag.png"
+                            })
+                        }
+                    })
+                })
                 
-                
+    var disqus_config = function () {
+    this.page.url = "https://vacation-webapp.netlify.app";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "Legends Vacation"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-vacation-webapp-netlify-app.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Joseph.</a></noscript>
                 
             </script>
 </body>
